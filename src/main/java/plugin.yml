@@ -1,0 +1,16 @@
+name: StationAPI
+version: 0.1
+api-version: 1.14
+author: Tabaribou
+main: fr.station47.stationAPI.api.StationAPI
+depend: [Vault,Theme,Citizens]
+commands:
+  shop:
+    description: Commandes shop
+    usage: /shop
+  citem:
+    description: Commandes pour modif item
+    usage: /citem
+  sapi:
+    description: Commande principale
+    usage: /sapi

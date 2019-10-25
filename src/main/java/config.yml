@@ -1,0 +1,11 @@
+database:
+  host: 'localhost'
+  database: 'club'
+  user: 'cluber'
+  password: 'cluber'
+modules:
+  upgrade: false
+  spell: false
+  destinations: false
+  customItem: false
+  shop: false
