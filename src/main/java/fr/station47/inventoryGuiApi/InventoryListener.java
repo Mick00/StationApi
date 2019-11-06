@@ -49,23 +49,42 @@ public class InventoryListener implements Listener {
         }
     }
 
-
+    /**
+     * Detroys the inventoryListener when closed
+     * @param b
+     */
     public void setDestroyOnLeave(boolean b){
         destroyOnLeave = b;
     }
 
+    /**
+     * Defines an action to run on inventory close
+     * @param action
+     */
     public void setcloseAction(CloseEventAction action){
         this.closeEventAction = action;
     }
 
+    /**
+     * Sets the action to run when the slot is clicked
+     * @param slot
+     * @param action
+     */
     public void setAction(int slot, InventoryAction action){
         actions[slot] = action;
     }
 
+    /**
+     * Sets the name of the inventory to listen
+     * @param name
+     */
     public void setName(String name){
         this.invName = name;
     }
 
+    /**
+     * Unregister the listener
+     */
     public void destroy(){
         HandlerList.unregisterAll(this);
     }

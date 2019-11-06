@@ -21,6 +21,12 @@ public class InventoryBuilder {
     private String invName;
     private ItemStack[] invContent;
 
+    /**
+     * Creates instance of an inventory builder
+     * @param invSize size of the inventory must be multiple of 9
+     * @param name Name of the inventory
+     * @param plugin Plugin creating the inventory (to register the listener)
+     */
     public InventoryBuilder(int invSize, String name, Plugin plugin){
         this.inv = Bukkit.createInventory(null, invSize,name);
         invContent = new ItemStack[invSize];
@@ -34,6 +40,12 @@ public class InventoryBuilder {
         return this;
     }
 
+    /**
+     * ListenTo(true) must be set for this have effect
+     * @param slot slot in inv
+     * @param action action to run on clic
+     * @return
+     */
     public InventoryBuilder setOnAction(int slot, InventoryAction action){
         listener.setAction(slot,action);
         return this;
@@ -55,6 +67,11 @@ public class InventoryBuilder {
         return this.listener;
     }
 
+    /**
+     * Register a listener to run the onclick Action
+     * @param listen
+     * @return
+     */
     public InventoryBuilder listenTo(boolean listen){
         if (listen) {
             Bukkit.getPluginManager().registerEvents(listener, plugin);
@@ -70,11 +87,21 @@ public class InventoryBuilder {
         return this;
     }
 
+    /**
+     * Listening must be on
+     * Run the action on close
+     * @param action
+     * @return
+     */
     public InventoryBuilder setActionOnClose(CloseEventAction action){
         listener.setcloseAction(action);
         return this;
     }
 
+    /**
+     * Returns the built inventory
+     * @return
+     */
     public Inventory build() {
         Inventory copyInv;
         if (destroyOnLeave){

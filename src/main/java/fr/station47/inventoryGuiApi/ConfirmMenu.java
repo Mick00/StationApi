@@ -7,11 +7,22 @@ import org.bukkit.Material;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.plugin.Plugin;
 
+/**
+ * Confirm menu in inventory GUI
+ */
 public class ConfirmMenu {
     private InventoryBuilder builder;
     private InventoryBuilder back;
     static int instance = 0;
 
+    /**
+     * Creates a GUI to ask for confirmation before running the InventoryAction
+     * @param confirmTitle Menu title
+     * @param confirmText confirm item name
+     * @param cancelText cancel item name
+     * @param action Action to run
+     * @param plugin the plugin using the confirmation menu
+     */
     public ConfirmMenu(String confirmTitle, String confirmText, String cancelText, InventoryAction action, Plugin plugin){
         builder = new InventoryBuilder(9,confirmTitle, plugin)
                 .setInventoryItem(new InventoryItem(3, ChatColor.GREEN+confirmText, Material.GREEN_GLAZED_TERRACOTTA)
@@ -25,6 +36,11 @@ public class ConfirmMenu {
                 .listenTo(true).unregisterListenerOnInvclose(true);
     }
 
+
+    /**
+     * Opens the menu to the player P
+     * @param p
+     */
     public void open(HumanEntity p){
         p.openInventory(builder.build());
     }

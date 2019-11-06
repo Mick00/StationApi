@@ -6,6 +6,10 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
 
+/**
+ * You should use the InventoryItem class instead
+ * @see fr.station47.inventoryGuiApi.inventoryAction.InventoryItem
+ */
 public class Button{
 
     public static ItemStack n(Material mat, String name, List<String> lore){

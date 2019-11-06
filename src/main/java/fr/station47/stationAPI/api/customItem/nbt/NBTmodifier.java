@@ -230,7 +230,7 @@ public class NBTmodifier {
             case DIAMOND_HOE:
                 return 0;
         }
-        if (Utils.isSpade(itemStack)){
+        if (Utils.isShovel(itemStack)){
             return -3;
         }
         if (Utils.isPickaxe(itemStack)){
